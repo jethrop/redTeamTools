@@ -11,9 +11,10 @@ import sys
 
 #Imports for using pure python in functions
 import asyncio
-import pyrcrack
-from rich.console import Console
-from rich.prompt import Prompt
+##Imports failing despite being installed with pip
+#import pycrack
+#from rich.console import Console
+#from rich.prompt import Prompt
 
 ###Static Variables
 ##All variables must be in 24hr YYMMDD format
@@ -29,7 +30,7 @@ sTHr = int(22)
 sTMin = int(0)
 sTSec = int(0)
 sT = time(sTHr,sTMin,sTSec)
-
+print(sT)
 #End Time
 eTHr = int(5)
 eTMin = int(0)
@@ -51,13 +52,13 @@ rMac = None
 #Video buffer size kb
 vSize = 100
 
-def updateVar():
+#def updateVar():
     ###This function updates dynamic variables
-    now = datetime.datetime.now()
-    nowD = now.date
-    nowT = now.ctime
+now = datetime.datetime.now()
+nowD = now.date
+nowT = now.ctime
 
-updateVar()
 print(now)
 print(nowD)
+print(now.date)
 print(nowT)
